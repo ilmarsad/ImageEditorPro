@@ -33,7 +33,7 @@ SignatureController _controller =
 class ImageEditorPro extends StatefulWidget {
   final Color appBarColor;
   final Color bottomBarColor;
-  final imagePath;
+  final String imagePath;
   ImageEditorPro({this.appBarColor, this.bottomBarColor, this.imagePath});
 
   @override
@@ -148,7 +148,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                   key: globalKey,
                   child: Stack(
                     children: <Widget>[
-                      _image != null
+                      widget.imagePath != ""
                           ? Image.file(
                               File(widget.imagePath),
                               height: height.toDouble(),
