@@ -151,9 +151,9 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                       widget.imagePath != ""
                           ? Image.file(
                               File(widget.imagePath),
-                              height: height.toDouble(),
-                              width: width.toDouble(),
-                              fit: BoxFit.cover,
+                              //height: height.toDouble(),
+                              //width: width.toDouble(),
+                              fit: BoxFit.contain,
                             )
                           : Container(),
                       Container(

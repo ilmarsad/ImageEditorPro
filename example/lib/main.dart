@@ -26,6 +26,7 @@ class _HomePageState extends State<HomePage> {
     final geteditimage =
         Navigator.push(context, MaterialPageRoute(builder: (context) {
       return ImageEditorPro(
+        imagePath: "",
         appBarColor: Colors.blue,
         bottomBarColor: Colors.blue,
       );
