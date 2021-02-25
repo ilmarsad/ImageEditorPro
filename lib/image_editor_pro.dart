@@ -110,7 +110,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                   setState(() {});
                 }),
             new FlatButton(
-                child: new Text("Done"),
+                child: new Text("Zakończ"),
                 textColor: Colors.white,
                 onPressed: () {
                   File _imageFile;
@@ -251,7 +251,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         showDialog(
                             context: context,
                             child: AlertDialog(
-                              title: const Text('Pick a color!'),
+                              title: const Text('Wybierz kolor!'),
                               content: SingleChildScrollView(
                                 child: ColorPicker(
                                   pickerColor: pickerColor,
@@ -262,7 +262,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                               ),
                               actions: <Widget>[
                                 FlatButton(
-                                  child: const Text('Got it'),
+                                  child: const Text('OK'),
                                   onPressed: () {
                                     setState(() => currentColor = pickerColor);
                                     Navigator.of(context).pop();
@@ -271,7 +271,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                               ],
                             ));
                       },
-                      title: 'Brush',
+                      title: 'Pędzel',
                     ),
                     BottomBarContainer(
                       icons: Icons.text_fields,
@@ -290,7 +290,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                           howmuchwidgetis++;
                         }
                       },
-                      title: 'Text',
+                      title: 'Tekst',
                     ),
                     BottomBarContainer(
                       icons: FontAwesomeIcons.eraser,
@@ -302,7 +302,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         multiwidget.clear();
                         howmuchwidgetis = 0;
                       },
-                      title: 'Eraser',
+                      title: 'Wyczyść',
                     ),
                     BottomBarContainer(
                       icons: Icons.color_lens,
@@ -313,7 +313,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                               return ColorPiskersSlider();
                             });
                       },
-                      title: 'Filter',
+                      title: 'Filtr',
                     ),
                     BottomBarContainer(
                       icons: FontAwesomeIcons.smile,
@@ -333,7 +333,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                           }
                         });
                       },
-                      title: 'Emoji',
+                      title: 'Emotki',
                     ),
                   ],
                 ),
@@ -355,7 +355,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: new Text("Select Image Options"),
+                child: new Text("Wybierz opcje zdjęcia"),
               ),
               Divider(
                 height: 1,
@@ -390,7 +390,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                     Navigator.pop(context);
                                   }),
                               SizedBox(width: 10),
-                              Text("Open Gallery")
+                              Text("Otwórz Galerię")
                             ],
                           ),
                         ),
@@ -419,7 +419,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                   Navigator.pop(context);
                                 }),
                             SizedBox(width: 10),
-                            Text("Open Camera")
+                            Text("Otwórz aparat")
                           ],
                         ),
                       ),
@@ -450,7 +450,7 @@ class _SignatState extends State<Signat> {
   @override
   void initState() {
     super.initState();
-    _controller.addListener(() => print("Value changed"));
+    _controller.addListener(() => print("Wartość zmieniona"));
   }
 
   @override
@@ -493,7 +493,7 @@ class _SlidersState extends State<Sliders> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: new Text("Slider Size"),
+              child: new Text("Wielkość"),
             ),
             Divider(
               height: 1,
@@ -535,13 +535,13 @@ class _ColorPiskersSliderState extends State<ColorPiskersSlider> {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(15.0),
-            child: new Text("Slider Filter Color"),
+            child: new Text("Filtr koloru"),
           ),
           Divider(
             height: 1,
           ),
           SizedBox(height: 20),
-          new Text("Slider Color"),
+          new Text("Kolor"),
           SizedBox(height: 10),
           BarColorPicker(
               width: 300,
@@ -554,7 +554,7 @@ class _ColorPiskersSliderState extends State<ColorPiskersSlider> {
                 });
               }),
           SizedBox(height: 20),
-          new Text("Slider Opicity"),
+          new Text("Przeźroczystość"),
           SizedBox(height: 10),
           Slider(value: 0.1, min: 0.0, max: 1.0, onChanged: (v) {})
         ],

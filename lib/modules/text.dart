@@ -31,7 +31,7 @@ class _TextEditorState extends State<TextEditor> {
               TextField(
                 controller: name,
                 decoration: InputDecoration(
-                  hintText: "Insert your message",
+                  hintText: "Wstaw Twój tekst",
                   hintStyle: TextStyle(color: Colors.white),
                   alignLabelWithHint: true,
                 ),
@@ -59,7 +59,7 @@ class _TextEditorState extends State<TextEditor> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: new Text(
-              "Add Text",
+              "Dodaj tekst",
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22,
