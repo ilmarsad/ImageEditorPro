@@ -240,6 +240,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     color: widget.bottomBarColor,
                     boxShadow: [BoxShadow(blurRadius: 10.9)]),
                 height: 70,
+                width: double.infinity,
                 child: new ListView(
                   scrollDirection: Axis.horizontal,
                   children: <Widget>[
