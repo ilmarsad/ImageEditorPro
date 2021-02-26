@@ -305,17 +305,6 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                       title: 'Wyczyść',
                     ),
                     BottomBarContainer(
-                      icons: Icons.color_lens,
-                      ontap: () {
-                        showModalBottomSheet(
-                            context: context,
-                            builder: (context) {
-                              return ColorPiskersSlider();
-                            });
-                      },
-                      title: 'Filtr',
-                    ),
-                    BottomBarContainer(
                       icons: FontAwesomeIcons.smile,
                       ontap: () {
                         Future getemojis = showModalBottomSheet(
