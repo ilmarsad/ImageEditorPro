@@ -13,6 +13,11 @@ class _TextEditorState extends State<TextEditor> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: new AppBar(
+        leading: BackButton(
+            onPressed: () {
+              Navigator.pop(context, name.text);
+            }
+        ),
         backgroundColor: Colors.black,
         actions: <Widget>[
           new IconButton(

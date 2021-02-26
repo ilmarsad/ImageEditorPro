@@ -237,7 +237,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
             ? new Container()
             : Container(
                 decoration: BoxDecoration(
-                    color: widget.bottomBarColor,
+                    color: Colors.black,
                     boxShadow: [BoxShadow(blurRadius: 10.9)]),
                 height: 70,
                 width: double.infinity,
