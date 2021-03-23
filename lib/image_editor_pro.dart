@@ -109,7 +109,10 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                   setState(() {});
                 }),
             new TextButton(
-                child: new Text("Gotowe"),
+                child: Text("Gotowe"),
+                style: TextButton.styleFrom(
+                    primary: Colors.white
+                ),
                 onPressed: () {
                   File _imageFile;
                   _imageFile = null;
@@ -260,7 +263,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                               ),
                               actions: <Widget>[
                                 TextButton(
-                                  child: const Text('OK'),
+                                  child: Text('OK'),
                                   onPressed: () {
                                     setState(() => currentColor = pickerColor);
                                     Navigator.of(context).pop();
