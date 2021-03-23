@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
@@ -109,9 +108,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                   _controller.points.clear();
                   setState(() {});
                 }),
-            new FlatButton(
+            new TextButton(
                 child: new Text("Gotowe"),
-                textColor: Colors.white,
                 onPressed: () {
                   File _imageFile;
                   _imageFile = null;
@@ -250,8 +248,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                       ontap: () {
                         // raise the [showDialog] widget
                         showDialog(
-                            context: context,
-                            child: AlertDialog(
+                            builder: (context) => AlertDialog(
                               title: const Text('Wybierz kolor!'),
                               content: SingleChildScrollView(
                                 child: ColorPicker(
@@ -262,7 +259,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                 ),
                               ),
                               actions: <Widget>[
-                                FlatButton(
+                                TextButton(
                                   child: const Text('OK'),
                                   onPressed: () {
                                     setState(() => currentColor = pickerColor);
@@ -270,7 +267,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                   },
                                 ),
                               ],
-                            ));
+                            ), context: context);
                       },
                       title: 'Pędzel',
                     ),
