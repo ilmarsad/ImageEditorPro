@@ -56,6 +56,9 @@ class _ImageEditorProState extends State<ImageEditorPro> {
   String selectPhotoOptionsText = 'Wybierz opcje zdjęcia';
   String openGalleryText = 'Otwórz galerię';
   String openPhotoText = 'Otwórz aparat';
+  String sizeText = 'Wielkość';
+  String insertText = 'Wstaw swój tekst';
+  String addText = 'Dodaj tekst';
 
 // ValueChanged<Color> callback
   void changeColor(Color color) {
@@ -113,6 +116,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
       selectPhotoOptionsText = 'Select photo options';
       openGalleryText = 'Open gallery';
       openPhotoText = 'open photo';
+      insertText = 'Wstaw swój tekst';
+      addText = 'Dodaj tekst';
     }
 
 
@@ -210,6 +215,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                       return Sliders(
                                         size: f.key,
                                         sizevalue: fontsize[f.key].toDouble(),
+                                        text: sizeText
                                       );
                                     });
                                   },
@@ -234,7 +240,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                           return Sliders(
                                             size: f.key,
                                             sizevalue:
-                                                fontsize[f.key].toDouble(),
+                                            fontsize[f.key].toDouble(),
+                                            text: sizeText,
                                           );
                                         });
                                       },
@@ -305,7 +312,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         final value = await Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => TextEditor()));
+                                builder: (context) => TextEditor(insertText: insertText, addText: addText)));
                         if (value.toString().isEmpty) {
                           print("true");
                         } else {

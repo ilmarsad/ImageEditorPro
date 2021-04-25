@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TextEditor extends StatefulWidget {
+  String insertText;
+  String addText;
+
+  TextEditor({this.insertText, this.addText});
+
   @override
   _TextEditorState createState() => _TextEditorState();
 }
@@ -36,7 +41,7 @@ class _TextEditorState extends State<TextEditor> {
               TextField(
                 controller: name,
                 decoration: InputDecoration(
-                  hintText: "Wstaw Twój tekst",
+                  hintText: widget.insertText,
                   hintStyle: TextStyle(color: Colors.white),
                   alignLabelWithHint: true,
                 ),
@@ -64,7 +69,7 @@ class _TextEditorState extends State<TextEditor> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: new Text(
-              "Dodaj tekst",
+              widget.addText,
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22,
