@@ -33,7 +33,8 @@ class ImageEditorPro extends StatefulWidget {
   final Color appBarColor;
   final Color bottomBarColor;
   final String imagePath;
-  ImageEditorPro({this.appBarColor, this.bottomBarColor, this.imagePath});
+  final String currentLocale;
+  ImageEditorPro({this.appBarColor, this.bottomBarColor, this.imagePath, this.currentLocale});
 
   @override
   _ImageEditorProState createState() => _ImageEditorProState();
@@ -45,6 +46,16 @@ class _ImageEditorProState extends State<ImageEditorPro> {
   // create some values
   Color pickerColor = Color(0xff443a49);
   Color currentColor = Color(0xff443a49);
+
+  String readyText = 'Gotowe';
+  String selectColorText = 'Wybierz kolor!';
+  String brushText = 'Pędzel';
+  String textLabel = 'Tekst';
+  String clearText = 'Wyczyść';
+  String emojisText = 'Emotki';
+  String selectPhotoOptionsText = 'Wybierz opcje zdjęcia';
+  String openGalleryText = 'Otwórz galerię';
+  String openPhotoText = 'Otwórz aparat';
 
 // ValueChanged<Color> callback
   void changeColor(Color color) {
@@ -91,6 +102,20 @@ class _ImageEditorProState extends State<ImageEditorPro> {
     offsets.clear();
     multiwidget.clear();
     howmuchwidgetis = 0;
+
+    if(widget.currentLocale != 'pl') {
+      readyText = 'Ready';
+      selectColorText = 'Select color!';
+      brushText = 'Brush';
+      textLabel = 'Text';
+      clearText = 'Clear';
+      emojisText = 'Emojis';
+      selectPhotoOptionsText = 'Select photo options';
+      openGalleryText = 'Open gallery';
+      openPhotoText = 'open photo';
+    }
+
+
     // TODO: implement initState
     super.initState();
   }
@@ -109,7 +134,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                   setState(() {});
                 }),
             new TextButton(
-                child: Text("Gotowe"),
+                child: Text(readyText),
                 style: TextButton.styleFrom(
                     primary: Colors.white
                 ),
@@ -252,7 +277,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         // raise the [showDialog] widget
                         showDialog(
                             builder: (context) => AlertDialog(
-                              title: const Text('Wybierz kolor!'),
+                              title: Text(selectColorText),
                               content: SingleChildScrollView(
                                 child: ColorPicker(
                                   pickerColor: pickerColor,
@@ -272,7 +297,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                               ],
                             ), context: context);
                       },
-                      title: 'Pędzel',
+                      title: brushText,
                     ),
                     BottomBarContainer(
                       icons: Icons.text_fields,
@@ -291,7 +316,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                           howmuchwidgetis++;
                         }
                       },
-                      title: 'Tekst',
+                      title: textLabel,
                     ),
                     BottomBarContainer(
                       icons: FontAwesomeIcons.eraser,
@@ -303,7 +328,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         multiwidget.clear();
                         howmuchwidgetis = 0;
                       },
-                      title: 'Wyczyść',
+                      title: clearText,
                     ),
                     BottomBarContainer(
                       icons: FontAwesomeIcons.smile,
@@ -323,7 +348,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                           }
                         });
                       },
-                      title: 'Emotki',
+                      title: emojisText,
                     ),
                   ],
                 ),
@@ -336,6 +361,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
     Future<void> future = showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
+
         return new Container(
           decoration: BoxDecoration(color: Colors.white, boxShadow: [
             BoxShadow(blurRadius: 10.9, color: Colors.grey[400])
@@ -345,7 +371,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: new Text("Wybierz opcje zdjęcia"),
+                child: new Text(selectPhotoOptionsText),
               ),
               Divider(
                 height: 1,
@@ -380,7 +406,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                     Navigator.pop(context);
                                   }),
                               SizedBox(width: 10),
-                              Text("Otwórz Galerię")
+                              Text(openGalleryText)
                             ],
                           ),
                         ),
@@ -409,7 +435,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                                   Navigator.pop(context);
                                 }),
                             SizedBox(width: 10),
-                            Text("Otwórz aparat")
+                            Text(openPhotoText)
                           ],
                         ),
                       ),
@@ -462,16 +488,21 @@ class _SignatState extends State<Signat> {
 class Sliders extends StatefulWidget {
   final int size;
   final sizevalue;
-  const Sliders({Key key, this.size, this.sizevalue}) : super(key: key);
+  final text;
+  const Sliders({Key key, this.size, this.sizevalue, this.text}) : super(key: key);
   @override
   _SlidersState createState() => _SlidersState();
 }
 
 class _SlidersState extends State<Sliders> {
+
   @override
   void initState() {
     slider = widget.sizevalue;
     // TODO: implement initState
+
+
+
     super.initState();
   }
 
@@ -483,7 +514,7 @@ class _SlidersState extends State<Sliders> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(20.0),
-              child: new Text("Wielkość"),
+              child: new Text(widget.text),
             ),
             Divider(
               height: 1,
