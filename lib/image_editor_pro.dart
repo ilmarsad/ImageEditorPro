@@ -33,7 +33,7 @@ class ImageEditorPro extends StatefulWidget {
   final Color appBarColor;
   final Color bottomBarColor;
   final String imagePath;
-  final String currentLocale;
+  final Locale currentLocale;
   ImageEditorPro({this.appBarColor, this.bottomBarColor, this.imagePath, this.currentLocale});
 
   @override
@@ -106,7 +106,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
     multiwidget.clear();
     howmuchwidgetis = 0;
 
-    if(widget.currentLocale != 'pl') {
+    if(widget.currentLocale.toString() != 'pl') {
       readyText = 'Ready';
       selectColorText = 'Select color!';
       brushText = 'Brush';
