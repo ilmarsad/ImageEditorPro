@@ -116,8 +116,8 @@ class _ImageEditorProState extends State<ImageEditorPro> {
       selectPhotoOptionsText = 'Select photo options';
       openGalleryText = 'Open gallery';
       openPhotoText = 'open photo';
-      insertText = 'Wstaw swój tekst';
-      addText = 'Dodaj tekst';
+      insertText = 'Insert own text';
+      addText = 'Add text';
     }
 
 
