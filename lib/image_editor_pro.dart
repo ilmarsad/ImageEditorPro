@@ -159,11 +159,7 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         .now()
                         .millisecondsSinceEpoch
                         .toString();
-                      if (Platform.isIOS) {
-                      final paths = await getApplicationDocumentsDirectory();
-                      } else {
-                      final paths = await getExternalStorageDirectory();
-                      }
+                    final paths = await getApplicationDocumentsDirectory();
                     image.copy(paths.path + '/' + _fileName + '.png');
                     Navigator.pop(context, image);
                   }).catchError((onError) {
