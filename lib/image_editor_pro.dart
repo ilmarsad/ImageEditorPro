@@ -159,13 +159,12 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                         .now()
                         .millisecondsSinceEpoch
                         .toString();
-                    if (Platform.isIOS) {
-                      final result = ImageGallerySaver.saveImage(image.readAsBytesSync(), quality: 80, name: _fileName);
-                      print(result);
-                    } else {
+                      if (Platform.isIOS) {
+                      final paths = await getApplicationDocumentsDirectory();
+                      } else {
                       final paths = await getExternalStorageDirectory();
-                      image.copy(paths.path + '/' + _fileName + '.png');
-                    }
+                      }
+                    image.copy(paths.path + '/' + _fileName + '.png');
                     Navigator.pop(context, image);
                   }).catchError((onError) {
                     print(onError);
