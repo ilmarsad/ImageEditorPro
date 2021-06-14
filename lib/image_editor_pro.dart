@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:image_editor_pro/modules/all_emojies.dart';
 import 'package:image_editor_pro/modules/bottombar_container.dart';
@@ -154,11 +155,12 @@ class _ImageEditorProState extends State<ImageEditorPro> {
                     setState(() {
                       _imageFile = image;
                     });
-                    final paths = await getExternalStorageDirectory();
-                    image.copy(paths.path +
-                        '/' +
-                        DateTime.now().millisecondsSinceEpoch.toString() +
-                        '.png');
+                    String _fileName = DateTime
+                        .now()
+                        .millisecondsSinceEpoch
+                        .toString();
+                    final paths = await getApplicationDocumentsDirectory();
+                    image.copy(paths.path + '/' + _fileName + '.png');
                     Navigator.pop(context, image);
                   }).catchError((onError) {
                     print(onError);
